@@ -1,0 +1,23 @@
+{
+  "name": "twilio-sms-logs-report",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anthonywong555/Twilio-SMS-Logs-Report.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anthonywong555/Twilio-SMS-Logs-Report/issues"
+  },
+  "homepage": "https://github.com/anthonywong555/Twilio-SMS-Logs-Report#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "twilio": "^3.55.1"
+  }
+}
