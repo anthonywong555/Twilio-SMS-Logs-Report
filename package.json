@@ -19,6 +19,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "dotenv": "^8.2.0",
+    "json2csv": "^5.0.5",
     "twilio": "^3.55.1"
   }
 }

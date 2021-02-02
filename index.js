@@ -3,12 +3,15 @@ require('dotenv').config();
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const axios = require('axios').default;
+const { parse } = require('json2csv');
+const fs = require('fs');
 
 const driver = async () => {
   try {
     const baseURL = baseURLGenerator();
     const messages = await recursive(baseURL);
-    console.log(messages.length);
+    console.log(`Number of messages: ${messages.length}`);
+    generateCSV(messages);
   } catch(e) {
     console.error(e);
   }
@@ -67,6 +70,25 @@ const recursive = async(nextPageUri, accumulator = []) => {
 
   } catch(e) {
     throw e;
+  }
+}
+
+const generateCSV = (messages = []) => {
+  if(messages.length == 0) {
+    console.log('No CSV was generated due to lack of messages.');
+    return;
+  }
+
+  const aMessage = messages[0];
+  const fields = Object.keys(aMessage);
+  const opts = {fields};
+  try {
+    const csv = parse(messages, opts);
+    const fileName = `${Date.now()}.csv`;
+    fs.writeFileSync(`${fileName}`, csv);
+    console.log(`Look at file Name: ${fileName}`);
+  } catch(e) {
+    console.error(`An error has occur when generating the CSV.\n ${e}`);
   }
 }
 
