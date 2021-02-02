@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/anthonywong555/Twilio-SMS-Logs-Report#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "twilio": "^3.55.1"
   }
